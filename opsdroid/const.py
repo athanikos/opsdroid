@@ -3,7 +3,7 @@ import os
 from appdirs import user_log_dir, user_config_dir, user_data_dir
 import opsdroid
 from opsdroid import __version__  # noqa # pylint: disable=unused-import
-NIKOS = "test"
+
 NAME = "opsdroid"
 MODULE_ROOT = os.path.dirname(os.path.abspath(opsdroid.__file__))
 DEFAULT_GIT_URL = "https://github.com/opsdroid/"
