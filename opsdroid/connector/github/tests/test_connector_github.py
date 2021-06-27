@@ -58,12 +58,11 @@ def test_missing_secret(caplog):
     "/user", "GET", get_response_path("github_user.json"), status=200
 )
 @pytest.mark.asyncio
+@pytest.mark.allow_hosts(["127.0.0.1"])
 async def test_connect(connector, mock_api):
     await connector.connect()
-
     assert mock_api.called("/user")
     assert mock_api.call_count("/user") == 1
-
     request = mock_api.get_request("/user", "GET")
     assert "Authorization" in request.headers
     assert "abc123" in request.headers["Authorization"]
